@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Tweet Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Disaster Tweet Tracker</h1>
+    </header>
+    <div class="container">
+        <!-- Centered Container -->
+        <div class="center-container">
+            <!-- Dropdown to Select Disaster Category -->
+            <div class="category-selector">
+                <h2>Select a Disaster Category</h2>
+                <select id="disaster-category" onchange="displayTweets()">
+                    <option value="" disabled selected>Select a category</option>
+                    {% for category in grouped_tweets.keys() %}
+                    <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- Tweets Section -->
+        <div id="tweets-section">
+            <h2>Selected Category Tweets</h2>
+            <div id="tweets-container">
+                <p>Please select a category to display tweets.</p>
+            </div>
+        </div>
+
+        <!-- Disaster Frequency Chart -->
+        <div class="chart-section">
+            <h3>Disaster Frequency</h3>
+            <canvas id="disasterChart"></canvas>
+        </div>
+
+        <!-- Subscription Form -->
+        <div class="subscribe-form">
+            <h3>Subscribe for Alerts</h3>
+            <form id="subscribe-form">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="subscription-message"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript for dynamic functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const groupedTweets = {{ grouped_tweets|tojson }};
+        const df = {{ df.to_dict('records')|tojson }};
+
+        // Display tweets for the selected category
+        function displayTweets() {
+            const category = document.getElementById("disaster-category").value;
+            const tweetsContainer = document.getElementById("tweets-container");
+            tweetsContainer.innerHTML = "";
+
+            if (groupedTweets[category]) {
+                groupedTweets[category].forEach(tweet => {
+                    const tweetData = df.find(row => row.Tweets === tweet);
+                    const tweetID = tweetData ? tweetData.ID : null;
+
+                    if (tweetID) {
+                        const tweetElement = document.createElement("div");
+                        tweetElement.classList.add("tweet");
+                        tweetElement.innerHTML = `<a href="/tweet/${tweetID}">${tweet}</a>`;
+                        tweetsContainer.appendChild(tweetElement);
+                    }
+                });
+            } else {
+                tweetsContainer.innerHTML = "<p>No tweets available for this category.</p>";
+            }
+        }
+
+        // Render disaster frequency chart
+        const categories = Object.keys(groupedTweets);
+        const frequencies = categories.map(category => groupedTweets[category].length);
+
+        const ctx = document.getElementById("disasterChart").getContext("2d");
+        const chart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: categories,
+                datasets: [{
+                    label: "Number of Tweets",
+                    data: frequencies,
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Handle subscription form
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('/subscribe', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('subscription-message').textContent = data.message;
+            });
+        });
+    </script>
+</body>
+</html>
+

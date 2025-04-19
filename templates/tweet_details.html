@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Tweet Details</h1>
+    </header>
+    <div class="tweet-details">
+        <p><strong>Name:</strong> {{ tweet_data['Name'] }}</p>
+        <p><strong>Username:</strong> {{ tweet_data['UserName'] }}</p>
+        <p><strong>Timestamp:</strong> {{ tweet_data['Timestamp'] }}</p>
+        <p><strong>Tweet:</strong> {{ tweet_data['Tweets'] }}</p>
+        <p><strong>Disaster Category:</strong> {{ category }}</p>
+        <p><strong>Tags:</strong> {{ tweet_data['Tags'] }}</p>
+        <p><strong>Tweet ID:</strong> {{ tweet_data['ID'] }}</p>
+        <p><strong>Tweet Link:</strong> 
+            <a href="{{ tweet_data['Tweet Link'] }}" target="_blank">
+                {{ tweet_data['Tweet Link'] }}
+            </a>
+        </p>
+    <footer>
+        <button onclick="window.location.href='/'">Go Back to Dashboard</button>
+    </footer>
+    </div>
+</body>
+</html>
+
+
+
+
