@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category h2 {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 0;
+}
+
+.tweet {
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+}
+
+.tweet a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.tweet a:hover {
+    color: #007bff;
+}
+
+.tweet-details {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    margin: 20px;
+}
+.subscribe-form {
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.subscribe-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.subscribe-form button:hover {
+    background-color: #0056b3;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+    text-align: center;
+}
+
+.category-selector select {
+    padding: 8px;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Tweets section: Full width */
+#tweets-section {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+#tweets-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+}
+
+.tweet {
+    flex: 1 1 calc(25% - 20px); /* Four columns */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    min-width: 200px; /* Ensure a minimum width */
+}
+
+.tweet a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.tweet a:hover {
+    text-decoration: underline;
+}
+
+/* Disaster frequency chart and subscribe form */
+.chart-section, .subscribe-form {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+}
+/* Center dropdown */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+    text-align: center;
+}
+
+.category-selector select {
+    padding: 8px;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Tweets section: Full width */
+#tweets-section {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+#tweets-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+}
+
+.tweet {
+    flex: 1 1 calc(25% - 20px); /* Four columns */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: left; /* Align text to the left for readability */
+    min-width: 200px; /* Ensure a minimum width */
+    max-width: 100%; /* Allow blocks to expand within their container */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+}
+
+.tweet a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.tweet a:hover {
+    text-decoration: underline;
+}
+
+/* Disaster frequency chart and subscribe form */
+.chart-section, .subscribe-form {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+}
