@@ -7,12 +7,12 @@ disasters. Users will interact with a dashboard that displays categorized tweets
 also alerts users to stay updated about the activity of the disasters.
 
 Key Actions and Features:  
-• Tweet Collection: The system monitors for new tweets related to specific disaster
+- Tweet Collection: The system monitors for new tweets related to specific disaster
 keywords.
-• Categorization: Each tweet is classified into one of the categories like wildfire, flood,
+- Categorization: Each tweet is classified into one of the categories like wildfire, flood,
 hurricane, tornodo, or drought using machine learning alogorithms.
-• Dashboard: Users are provided with a dashboard that displays categorized tweets.
-• Alerts: In case of severe activity related to a particular disaster, the system sends alerts to
+- Dashboard: Users are provided with a dashboard that displays categorized tweets.
+- Alerts: In case of severe activity related to a particular disaster, the system sends alerts to
 users.
 
 Workflow:  
