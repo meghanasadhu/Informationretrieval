@@ -1,4 +1,4 @@
-Project Name: Natural Phenomena Detection from Tweets  
+**Project Name: Natural Phenomena Detection from Tweets**  
 The project aims to develop a system that detects and categorizes natural disaster related tweets.
 This system is designed to assist emergency services, humanitarian organizations, and news
 agencies in responding to critical events such as wildfires, floods, hurricanes, tornadoes, and
