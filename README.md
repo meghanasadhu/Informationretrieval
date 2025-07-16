@@ -23,12 +23,14 @@ Workflow:
 5.	Dashboard Display: The tweets are displayed on a dashboard
 6.	Send Alerts: Alerts users based on the volume of specific disaster tweets
 
-Project Design:  
-Programming Language: Python
-IDE: Visual Studio Code, Google Colab
-Libraries/Packages:
-•	Scikit-learn for machine learning and classification
-•	NLTK for natural language processing, tokenization
-•	Flask for building the dashboard
-•	Pandas for data manipulation
-•	Matplotlib for visualizing results
+Project Design:   
+Programming Language: Python  
+IDE: Visual Studio Code, Google Colab  
+Libraries/Packages:  
+•	Scikit-learn for machine learning and classification  
+•	NLTK for natural language processing, tokenization  
+•	Flask for building the dashboard  
+•	Pandas for data manipulation  
+•	Matplotlib for visualizing results  
+
+Live at: https://disaster-ir-app.onrender.com/
